@@ -1,6 +1,8 @@
+var mok = true;
+var pok = true;
 function login_check(){
- var mail = document.getElementById('mail').value;
-var password = document.getElementById('password').value;
+ var nmail = document.getElementById('mail').value;
+var npassword = document.getElementById('password').value;
   function json(url){
     return fetch(url).then(res =>
       res.json()
@@ -8,9 +10,10 @@ var password = document.getElementById('password').value;
     }
   
   json('https://api.jsonbin.io/b/623fd4477caf5d6783728678/latest').then(data =>{
-    var check_mail = data.data[0].mail;
-  var check_password = data.data[0].password;
- if(mail == check_mail && password == check_password){
+    var check_mail = data.data.filter( (data)=> data.mail==nmail?mok=true:mok=false);
+    var check_password = data.data.filter( (data) => data.password == npassword?pok=true:pok=false);
+
+ if( mok==true && pok == true ){
   document.getElementById('alert-success').classList.remove('d-none');
   document.getElementById('mail').innerHTML = '';
   document.getElementById('password').innerHTML = '';
@@ -22,6 +25,6 @@ var password = document.getElementById('password').value;
   document.getElementById('mail').innerHTML = '';
   document.getElementById('password').innerHTML = '';
   setTimeout(() => {document.getElementById('alert-danger').classList.add('d-none');}, 5000);
- }
+ } 
   } );
 }
