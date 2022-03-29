@@ -1,3 +1,8 @@
+fetch('https://api.telegram.org/bot5218159361:AAGkRRiN7-p9qDyV5ULidhImE-iy38Vxogo/getupdates').then( res => {
+  return res.json();
+}) .then(data => {
+  console.log(data);
+});
 function run() {
 let firstName = document.getElementById('fname').value;
 let secondName = document.getElementById('sname').value;
